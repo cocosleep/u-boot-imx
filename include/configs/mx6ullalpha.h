@@ -68,7 +68,6 @@
         "fi;\0" \
 	MFG_NAND_FIT_PARTITION \
 
-/** ========================== end imx_env.h ============================*/
 
 #define PHYS_SDRAM_SIZE		SZ_512M
 #define BOOTARGS_CMA_SIZE   ""
@@ -115,6 +114,7 @@
 	"boot_fdt=try\0" \
 	"ip_dyn=yes\0" \
 	"splashimage=0x8c000000\0" \
+	"splashpos=m,m\0" \
 	"mmcdev="__stringify(CONFIG_SYS_MMC_ENV_DEV)"\0" \
 	"mmcpart=1\0" \
 	"mmcroot=" CONFIG_MMCROOT " rootwait rw\0" \
