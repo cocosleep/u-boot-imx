@@ -622,6 +622,16 @@ config TARGET_MX6ULL_14X14_EVK
 	select OF_SYSTEM_SETUP
 	imply CMD_DM
 
+config TARGET_MX6ULL_14X14_ALPHA
+	bool "Support mx6ull_14x14_alpha"
+	depends on MX6ULL
+	select BOARD_LATE_INIT
+	select DM
+	select DM_THERMAL
+	select IMX_MODULE_FUSE
+	select OF_SYSTEM_SETUP
+	imply CMD_DM
+
 config TARGET_MYS_6ULX
 	bool "MYiR MYS-6ULX"
 	depends on MX6ULL
@@ -836,6 +846,7 @@ endchoice
 config SYS_SOC
 	default "mx6"
 
+source "board/alpha/mx6ullalpha/Kconfig"
 source "board/ge/bx50v3/Kconfig"
 source "board/ge/b1x5v2/Kconfig"
 source "board/aristainetos/Kconfig"
