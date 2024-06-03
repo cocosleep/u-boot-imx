@@ -27,9 +27,6 @@
 #define CONFIG_SYS_MAXARGS	32
 #define CONFIG_SYS_BARGSIZE	CONFIG_SYS_CBSIZE
 
-/* NET PHY */
-#define PHY_ANEG_TIMEOUT 20000
-
 /* MMC */
 #define CONFIG_SUPPORT_EMMC_BOOT
 
@@ -115,6 +112,10 @@
 	"ip_dyn=yes\0" \
 	"splashimage=0x8c000000\0" \
 	"splashpos=m,m\0" \
+	"serverip=192.168.50.166\0" \
+	"ipaddr=192.168.50.20\0" \
+	"gatewayip=192.168.50.1\0" \
+	"netmask=255.255.255.0\0" \
 	"mmcdev="__stringify(CONFIG_SYS_MMC_ENV_DEV)"\0" \
 	"mmcpart=1\0" \
 	"mmcroot=" CONFIG_MMCROOT " rootwait rw\0" \
@@ -233,8 +234,10 @@
 #define CONFIG_USB_MAX_CONTROLLER_COUNT 2
 #endif
 
+/* NET PHY */
+#define PHY_ANEG_TIMEOUT 20000
 #define CONFIG_FEC_XCV_TYPE             RMII
-#define CONFIG_ETHPRIME			"eth1"
+#define CONFIG_ETHPRIME					"eth1"
 
 #ifndef CONFIG_SPL_BUILD
 #if defined(CONFIG_DM_VIDEO)
