@@ -22,6 +22,16 @@
 		enable-active-high;
 	};
 
+	reg_sd2_vmmc: regulator-sd2-vmmc {
+		compatible = "regulator-fixed";
+		regulator-name = "+V3.3";
+		regulator-min-microvolt = <3300000>;
+		regulator-max-microvolt = <3300000>;
+		gpio = <&gpio4 10 GPIO_ACTIVE_HIGH>;
+		off-on-delay-us = <20000>;
+		enable-active-high;
+	};
+
 	reg_can_3v3: regulator-can-3v3 {
 		compatible = "regulator-fixed";
 		regulator-name = "can-3v3";
@@ -252,16 +262,22 @@
 	keep-power-in-suspend;
 	wakeup-source;
 	vmmc-supply = <&reg_sd1_vmmc>;
+	non-removable;
 	status = "okay";
 };
 
 &usdhc2 {
-	pinctrl-names = "default";
-	pinctrl-0 = <&pinctrl_usdhc2>;
+	pinctrl-names = "default", "state_100mhz", "state_200mhz";
+	pinctrl-0 = <&pinctrl_usdhc2_8bit>;
+	pinctrl-1 = <&pinctrl_usdhc2_8bit_100mhz>;
+	pinctrl-2 = <&pinctrl_usdhc2_8bit_200mhz>;
 	no-1-8-v;
 	broken-cd;
 	keep-power-in-suspend;
 	wakeup-source;
+	bus-width = <8>;
+	vmmc-supply = <&reg_sd2_vmmc>;
+	non-removable;
 	status = "okay";
 };
 
