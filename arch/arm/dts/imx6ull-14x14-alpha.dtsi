@@ -74,7 +74,7 @@
 	phy-mode = "rmii";
 	phy-handle = <&ethphy0>;
 	phy-reset-gpio = <&gpio5 7 GPIO_ACTIVE_LOW>;
-	phy-reset-duration = <200>;
+	phy-reset-duration = <20>;
 	mac-address = [02 18 31 7e 3e 6f];
 	status = "okay";
 };
@@ -86,7 +86,7 @@
 	phy-mode = "rmii";
 	phy-handle = <&ethphy1>;
 	phy-reset-gpio = <&gpio5 8 GPIO_ACTIVE_LOW>;
-	phy-reset-duration = <200>;
+	phy-reset-duration = <20>;
 	mac-address = [02 18 31 7e 3e 00];
 	status = "okay";
 
